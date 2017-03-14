@@ -1,0 +1,26 @@
+
+.offlineimagereferenceselector-container {
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap:wrap;
+    -webkit-flex-wrap: wrap;
+}
+
+.offlineimagereferenceselector-item {
+    width: 100px;
+}
+
+.offlineimagereferenceselector-item-button {
+    border: none;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;        
+}
+
+.offlineimagereferenceselector-item-caption {
+    display: block;
+    white-space: nowrap;
+}
+
+.offlineimagereferenceselector-item-selected {
+}

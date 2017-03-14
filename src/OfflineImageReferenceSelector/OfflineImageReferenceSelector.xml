@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="OfflineImageReferenceSelector.widget.OfflineImageReferenceSelector" offlineCapable="true" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>Offline image reference selector</name>
+    <description>Intended for offline apps only. Select a referenced entity object from a list of icons rather than a drop down.</description>
+
+    <icon />
+
+    <properties>
+        <property key="selectableObjectsEntity" type="string">
+            <caption>Selectable objects</caption>
+            <category>Data source</category>
+            <description>Selectable objects entity, in module.entity format. The image will be rendered if it is a specialization of System.Image</description>
+        </property>
+        <property key="selectableObjectAssociation" type="string">
+            <caption>Association to set</caption>
+            <category>Data source</category>
+            <description>Association from the context object to the selectable objects entity, in module.association format.</description>
+        </property>
+        <property key="showImage" type="boolean" defaultValue="true">
+            <caption>Show image</caption>
+            <category>Data source</category>
+            <description>Render image if entity is specialization of System.Image. Turn off to display an image using CSS.</description>
+        </property>
+        <property key="captionAttr" type="string" required="false">
+            <caption>Caption</caption>
+            <category>Data source</category>
+            <description>Optional, caption to be displayed.</description>
+        </property>
+        <property key="valueAttr" type="string">
+            <caption>Value</caption>
+            <category>Data source</category>
+            <description>Value that identifies this item, set as attribute value on the element for CSS selection</description>
+        </property>
+        <property key="sortAttr" type="string">
+            <caption>Sort on</caption>
+            <category>Data source</category>
+            <description>Sort list on this attribute.</description>
+        </property>
+        <property key="sortDirection" type="enumeration" defaultValue="asc">
+            <caption>Sort direction</caption>
+            <category>Data source</category>
+            <description>Sort ascending or descending</description>
+            <enumerationValues>
+                <enumerationValue key="asc">Ascending</enumerationValue>
+                <enumerationValue key="desc">Descending</enumerationValue>
+            </enumerationValues>
+        </property>
+        <property key="constraintList" type="object" isList="true" required="false">
+            <caption>Constraints</caption>
+            <category>Data source</category>
+            <description>Constraints on the selectable objects</description>
+            <properties>
+                <property key="attribute" type="string">
+                    <caption>Attribute</caption>
+                    <category>Data source</category>
+                    <description>Attribute to constrain on</description>
+                </property>
+                <property key="operator" type="enumeration" defaultValue="equals">
+                    <caption>Operator</caption>
+                    <category>Data source</category>
+                    <description>Operator</description>
+                    <enumerationValues>
+                        <enumerationValue key="equals">Equals</enumerationValue>
+                        <enumerationValue key="lessThan">Less than</enumerationValue>
+                        <enumerationValue key="lessThanOrEquals">Less than or equals</enumerationValue>
+                        <enumerationValue key="greatherThan">Greather than</enumerationValue>
+                        <enumerationValue key="greaterThanOrEquals">Greather than or equals</enumerationValue>
+                        <enumerationValue key="contains">Contains</enumerationValue>
+                    </enumerationValues>
+                </property>
+                <property key="value" type="string">
+                    <caption>Value</caption>
+                    <category>Data source</category>
+                    <description>The value to constrain with</description>
+                </property>
+                <property key="negate" type="boolean" defaultValue="false">
+                    <caption>Negate</caption>
+                    <category>Data source</category>
+                    <description>If true, return the objects not matching the constraint.</description>
+                </property>
+            </properties>
+        </property>
+        <property key="subscribeTopic" type="string" required="true" defaultValue="ObjectUpdate">
+            <caption>Subscribe topic</caption>
+            <category>Data source</category>
+            <description>The widget will use Dojo subscribe on topic-EntityName.GUID</description>
+        </property>
+        <property key="closePage" type="boolean" defaultValue="false">
+            <caption>Close page</caption>
+            <category>Behavior</category>
+            <description>If true, close the page after an item is clicked.</description>
+        </property>
+        
+        <property key="itemClass" type="string" required="true" defaultValue="offlineimagereferenceselector-item">
+            <caption>Item CSS class</caption>
+            <category>Styling</category>
+            <description>The CSS class to use on one item.</description>
+        </property>
+        <property key="itemImagePosition" type="string" required="true" defaultValue="left top">
+            <caption>Item image position</caption>
+            <category>Styling</category>
+            <description>The position of the image as background. CSS background-position value</description>
+        </property>
+        <property key="containerClass" type="string" required="true" defaultValue="offlineimagereferenceselector-container">
+            <caption>Item container CSS class</caption>
+            <category>Styling</category>
+            <description>The CSS class to use on the item container.</description>
+        </property>
+        <property key="itemNotSelectedClass" type="string" required="true" defaultValue="offlineimagereferenceselector-item-not-selected">
+            <caption>Item not selected CSS class</caption>
+            <category>Styling</category>
+            <description>The CSS class to use on items that are not selected.</description>
+        </property>
+        <property key="itemSelectedClass" type="string" required="true" defaultValue="offlineimagereferenceselector-item-selected">
+            <caption>Item selected CSS class</caption>
+            <category>Styling</category>
+            <description>The CSS class to use on the selected item.</description>
+        </property>
+        <property key="buttonClass" type="string" required="true" defaultValue="offlineimagereferenceselector-item-button">
+            <caption>Item button CSS class</caption>
+            <category>Styling</category>
+            <description>The CSS class to use on the item button.</description>
+        </property>
+        <property key="captionClass" type="string" required="true" defaultValue="offlineimagereferenceselector-item-caption">
+            <caption>Item caption CSS class</caption>
+            <category>Styling</category>
+            <description>The CSS class to use on the item caption.</description>
+        </property>
+    </properties>
+</widget>
+

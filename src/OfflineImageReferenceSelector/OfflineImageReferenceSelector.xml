@@ -16,6 +16,23 @@
             <category>Data source</category>
             <description>Association from the context object to the selectable objects entity, in module.association format.</description>
         </property>
+        <property key="additionalAttrList" type="object" isList="true" required="false">
+            <caption>Additional attributes</caption>
+            <category>Data source</category>
+            <description>Additional attributes to set on the context object</description>
+            <properties>
+                <property key="contextAttr" type="string">
+                    <caption>Context obj attr</caption>
+                    <category>Data source</category>
+                    <description>Context object attribute</description>
+                </property>
+                <property key="referencedAttr" type="string">
+                    <caption>Ref. attr</caption>
+                    <category>Data source</category>
+                    <description>Referenced attribute</description>
+                </property>
+            </properties>
+        </property>
         <property key="showImage" type="boolean" defaultValue="true">
             <caption>Show image</caption>
             <category>Data source</category>

@@ -41,6 +41,7 @@ define([
         // Parameters configured in the Modeler.
         selectableObjectsEntity: "",
         selectableObjectAssociation: "",
+        additionalAttrList: null,
         showImage: true,
         captionAttr: "",
         valueAttr: "",
@@ -192,6 +193,12 @@ define([
 
             // Set association on the context object.
             this._contextObj.addReference(this.selectableObjectAssociation, guid);
+            
+            // Set additional attributes, if any
+            // 
+            dojoArray.forEach(this.additionalAttrList, function (additionalAttrItem) {
+                thisObj._contextObj.set(additionalAttrItem.contextAttr, obj.get(additionalAttrItem.referencedAttr));
+            });
 
             publishData = {
                 contextGuid: this._contextObj.getGuid(),

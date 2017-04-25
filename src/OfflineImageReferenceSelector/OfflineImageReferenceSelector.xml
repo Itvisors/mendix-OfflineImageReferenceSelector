@@ -102,10 +102,11 @@
             <category>Data source</category>
             <description>The widget will use Dojo subscribe on topic-EntityName.GUID</description>
         </property>
+                
         <property key="closePage" type="boolean" defaultValue="false">
             <caption>Close page</caption>
             <category>Behavior</category>
-            <description>If true, close the page after an item is clicked.</description>
+            <description>If true, close the page after an item is selected. The object is committed too.</description>
         </property>
         
         <property key="itemClass" type="string" required="true" defaultValue="offlineimagereferenceselector-item">

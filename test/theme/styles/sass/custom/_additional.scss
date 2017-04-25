@@ -1,0 +1,43 @@
+/****************************************
+ * Additional styling
+ ****************************************/
+
+.DisplayNone {
+    display: none;
+}
+
+div.offlineimagereferenceselector-item.offlineimagereferenceselector-item-not-selected {
+    margin-bottom: 2px;
+}
+div.offlineimagereferenceselector-item.offlineimagereferenceselector-item-selected {
+    border-bottom: 2px solid black;
+}
+
+.mx-name-offlineImageReferenceSelectorFlags {
+    div.offlineimagereferenceselector-item {
+        height: 150px;
+        span.offlineimagereferenceselector-item-caption {
+            margin-top: 40px;
+        }
+    }    
+}
+
+.mx-name-offlineImageReferenceSelectorSports {
+    margin-top: 30px;
+    div.offlineimagereferenceselector-item[data-value="Archery"] {
+        background: url(../../images/sports-archery.png) no-repeat left top;
+    }
+    div.offlineimagereferenceselector-item[data-value="Cycling"] {
+        background: url(../../images/sports-man-cycling.png) no-repeat left top;
+    }
+    div.offlineimagereferenceselector-item[data-value="Swimming"] {
+        background: url(../../images/sports-swimming-figure.png) no-repeat left top;
+    }
+    div.offlineimagereferenceselector-item[data-value="WeightLifting"] {
+        background: url(../../images/sports-weightlifting.png) no-repeat left top;
+    }
+}
+
+.mx-name-containerFlags {
+    margin-top: 30px;
+}

@@ -76,7 +76,12 @@ define([
                         
             this._runOnDevice = typeof cordova !== "undefined";
             if (this._runOnDevice) {
-                this._documentDirectory = cordova.file.externalDataDirectory || cordova.file.dataDirectory;
+                // The new WKWebView uses a different storage location
+                if (cordova.wkwebview) {
+                    this._documentDirectory = cordova.wkwebview.storageDir;
+                } else {
+                    this._documentDirectory = cordova.file.externalDataDirectory || cordova.file.dataDirectory;
+                }
             }
             
             this._updateRendering();
@@ -116,11 +121,14 @@ define([
             
             var thisObj = this;
 
-            this._containerNode = dojoConstruct.create("div", { "class" : this.containerClass }, this.domNode);
             
             mx.data.getSlice(this.selectableObjectsEntity, this.constraintList, {
                 sort: [[this.sortAttr, this.sortDirection]]
             }, function (objArray, count) {
+                // Clear and create the widget elements in getSlice callback because the runtime updates the context object twice when conditional visibility is applied.
+                // That would result in all buttons rendered twice.
+                dojoConstruct.empty(thisObj.domNode);
+                thisObj._containerNode = dojoConstruct.create("div", { "class" : thisObj.containerClass }, thisObj.domNode);
                 dojoArray.forEach(objArray, lang.hitch(thisObj, thisObj._createItem));
             }, function (e) {
                 console.error("An error occured: " + e.message);
@@ -225,7 +233,6 @@ define([
         _updateRendering: function (callback) {
             logger.debug(this.id + "._updateRendering");
 
-            dojoConstruct.empty(this.domNode);
             this._containerNode = null;
             if (this._contextObj !== null) {
                 dojoStyle.set(this.domNode, "display", "block");
